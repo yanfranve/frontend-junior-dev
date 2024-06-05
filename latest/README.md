@@ -75,7 +75,7 @@ A reusable custom web component that dynamically displays author details upon in
 
 ## CSS resources
 
-You can optional use Tailwind CSS in the styles of each component or your own.
+You can optionally use Tailwind CSS in the styles of each component or your own.
 
 Example using Tailwind:
 
