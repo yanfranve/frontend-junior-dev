@@ -102,6 +102,8 @@ Example using Tailwind:
 
 # Using the API
 
+Base URL: https://5fb46367e473ab0016a1654d.mockapi.io/
+
 The REST API provides two main endpoints to fetch data: `/users` and `/articles`. Both endpoints support the following functionalities:
 
 - **Find by ID:** `/users/:id` and `/articles/:id`
