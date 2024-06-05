@@ -10,6 +10,14 @@ If you're a recruiter you're welcome to fork this repository and use it in your 
 
 In case you're a developer, use it as a homework to practice or learn how to build web components.
 
+1. [Rules](#rules)
+2. [Overview](#overview)
+3. [Tasks](#tasks)
+4. [Using the API](#using-the-api)
+5. [Bonus](#bonus)
+6. [Submission](#submission)
+7. [Useful Resources](#useful-resources)
+
 # Rules
 
 1. Not fork! Clone this repository. (public or private)
@@ -166,7 +174,7 @@ For more detailed information about filtering and querying, refer to the [MockAP
 
 Upload your solution to your GitHub repository and share the link to developers@videsk.io with the subject "Frontend Dev Q2-2024" also your name and some optional explanation of your code.
 
-### Useful Resources
+# Useful Resources
 
 - [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 - [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
