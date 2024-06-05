@@ -1,11 +1,15 @@
 # Developer profile
 
-Your degree or where you studied does not matter 👻 at Videsk. What is essential is that you have experience developing with the following frameworks, libraries, tools, and standards. ☝
+Your degree or where you studied does not matter 👻 at Videsk. What is essential is that you have knowledge and minimal experience developing with the following frameworks, libraries, tools, and standards. ☝
 
 - Experience: 0 to 3 years
 - Work Mode: 100% Remote
 - Salary: $600 - $1000 USD
 - Hours: Fulltime
+- Language: Spanish and/or English
+
+> [!NOTE]  
+> Most of the team speak Spanish, but we write in English
 
 Required Skills (Marked with ❗ are crucial and non-negotiable):
 
@@ -14,10 +18,9 @@ Required Skills (Marked with ❗ are crucial and non-negotiable):
 - JavaScript ES6 (Promises, async/await, catch, class) ❗
 - CSS (Flex, grid, position, animation) ❗
 - Web Components ❗
-- Webpack / Rollup, Babel
+- Rollup, Babel
 - Git / GitHub ❗
-- NPM (Publish)
-- JWT (Sign and verify)
+- JWT
 - Cypress and/or Mocha
 - Semantic versioning ❗
 - Additionally, it's important to work with or know tools like Sentry.
@@ -35,6 +38,9 @@ You will work closely with a specialized team and our CTO, who is, of course, ex
 We will track progress based on tasks assigned in Github projects, allowing us to see the overall team progress 🤟. We have weekly company-wide meetings to discuss team progress, needs, ideas, visions, suggestions, etc. 🤓
 
 You will start with a 3-month trial period. 🤝 After that, depending on your performance and synergy with the team, you will become a permanent team member. 🥳
+
+> [!IMPORTANT]  
+> We hope you will learn from our team the first 3 months. After that you will have more independency working on your tasks.
 
 ## Our Work Style
 
