@@ -31,7 +31,7 @@ html, body, #app {
 }
 
 .remove-this {
-  background-image: url('./assets/background.png');
+  background-image: url('assets/background.png');
   @apply bg-contain bg-no-repeat bg-center;
 }
 </style>
