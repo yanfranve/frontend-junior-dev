@@ -5,6 +5,7 @@ Your degree or where you studied does not matter 👻 at Videsk. What is essenti
 - Experience: 0 to 3 years
 - Work Mode: 100% Remote
 - Salary: $600 - $1000 USD
+- Hours: Fulltime
 
 Required Skills (Marked with ❗ are crucial and non-negotiable):
 
