@@ -16,11 +16,17 @@ In case you're a developer, use it as a homework to practice or learn how to bui
 2. Use this template. We don't want to evaluate how do you configure compilers or environment.
 3. You have 5 days to send this test.
 
+> [!NOTE]  
+> We'll verify the 5 days based on the time you took on send all commits to your repo
+
 # Overview
 
 You are required to create two types of custom web components: one for authors and another for articles. These components must fetch data from a REST API without authentication. The task includes creating a component for each article and another component to display all articles. You will also implement functionality to set the array of articles dynamically and display additional details upon interaction.
 
 # Tasks
+
+> [!TIP]
+> You can define your own components name, but remember follow the best practices.
 
 ### Task 1: Create Article Component
 
@@ -150,12 +156,15 @@ For more detailed information about filtering and querying, refer to the [MockAP
 
 # Bonus
 
+> [!NOTE]  
+> Bonus are optional
+
 1. Create filters and sorter for articles, considering the feature should be able accesible through a method like `element.search()` or `element.sort()`. So the UI should use that properties.
 2. Use `slot` on `articles` component to replace the default article and/or author component with any HTML.
 
 # Submission
 
-Upload your solution to a GitHub repository and share the link to developers@videsk.io with the subject "Frontend Dev Q2-2024" also your name and some optional explanation of your code.
+Upload your solution to your GitHub repository and share the link to developers@videsk.io with the subject "Frontend Dev Q2-2024" also your name and some optional explanation of your code.
 
 ### Useful Resources
 
