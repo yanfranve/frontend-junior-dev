@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Web Components</title>
+    <script type="module" src="./components/author-card.js"></script>
+    <script type="module" src="./components/article-item.js"></script>
+    <script type="module" src="./components/article-list.js"></script>
+    <script type="module" src="./components/article-card.js"></script>
+</head>
+<body>
+    <h1>Web Components Demo</h1>
+
+    <!-- Author Card -->
+    <h2>Author Information</h2>
+    <author-card author-id="1"></author-card>
+
+    <!-- Article Card -->
+    <h2>Article Information</h2>
+    <article-card article-id="1"></article-card>
+
+    <!-- Article List -->
+    <h2>Article List</h2>
+    <article-list id="articleList"></article-list>
+
+    <script>
+        // Sample articles data for Article List
+        const articles = [
+            {
+                id: "1",
+                publishedAt: "2024-06-05T03:29:00.248Z",
+                title: "First Article",
+                image: "https://loremflickr.com/640/480",
+                company: "Company A",
+                description: "Description of the first article.",
+                content: "Full content of the first article.",
+                author: "1"
+            },
+            {
+                id: "2",
+                publishedAt: "2024-06-05T03:29:00.248Z",
+                title: "Second Article",
+                image: "https://loremflickr.com/640/480",
+                company: "Company B",
+                description: "Description of the second article.",
+                content: "Full content of the second article.",
+                author: "2"
+            }
+        ];
+
+        // Set articles dynamically in Article List
+        const articleList = document.getElementById('articleList');
+        articleList.articles = articles;
+    </script>
+</body>
+</html>
