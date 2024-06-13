@@ -23,13 +23,17 @@ class ArticleItem extends HTMLElement {
                     background: white;
                     transition: transform 0.2s;
                     cursor: pointer;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
                 }
                 .card:hover {
                     transform: scale(1.02);
                 }
                 .image {
                     width: 100%;
-                    height: 200px;
+                    height: 150px;
                     object-fit: cover;
                 }
                 .content {
@@ -60,7 +64,6 @@ class ArticleItem extends HTMLElement {
             </div>
         `;
 
-        // Add event listener for click event
         this.shadowRoot.getElementById('card').addEventListener('click', () => {
             window.location.href = `details.html?articleId=${this.article.id}`;
         });
