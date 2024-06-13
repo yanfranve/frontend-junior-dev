@@ -2,15 +2,13 @@ class ArticleList extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this._articles = [];
+        this.articles = [];
+        this.filteredArticles = [];
     }
 
-    connectedCallback() {
-        this.render();
-    }
-
-    set articles(value) {
-        this._articles = value;
+    set articles(data) {
+        this._articles = data;
+        this.filteredArticles = data;
         this.render();
     }
 
@@ -18,29 +16,30 @@ class ArticleList extends HTMLElement {
         return this._articles;
     }
 
-    render() {
-        const template = document.createElement('template');
-        template.innerHTML = `
-            <style>
-                :host {
-                    display: block;
-                    font-family: Arial, sans-serif;
-                }
-            </style>
-            <div class="article-list">
-                ${this._articles.map(article => `
-                    <article-item
-                        title="${article.title}"
-                        image="${article.image}"
-                        company="${article.company}"
-                        description="${article.description}">
-                    </article-item>
-                `).join('')}
-            </div>
-        `;
+    search(query) {
+        this.filteredArticles = this._articles.filter(article =>
+            article.title.toLowerCase().includes(query.toLowerCase()) ||
+            article.description.toLowerCase().includes(query.toLowerCase())
+        );
+        this.render();
+    }
 
+    sort(criteria) {
+        if (criteria === 'date') {
+            this.filteredArticles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+        } else if (criteria === 'title') {
+            this.filteredArticles.sort((a, b) => a.title.localeCompare(b.title));
+        }
+        this.render();
+    }
+
+    render() {
         this.shadowRoot.innerHTML = '';
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.filteredArticles.forEach(article => {
+            const articleItem = document.createElement('article-item');
+            articleItem.data = article;
+            this.shadowRoot.appendChild(articleItem);
+        });
     }
 }
 

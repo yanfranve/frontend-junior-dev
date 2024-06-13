@@ -1,0 +1,83 @@
+{
+    "articles": [
+        {
+            "id": "1",
+            "publishedAt": "2024-06-05T03:29:00.248Z",
+            "title": "Exploring JavaScript",
+            "image": "https://loremflickr.com/640/480",
+            "company": "Tech Insights",
+            "description": "A comprehensive guide to modern JavaScript practices.",
+            "content": "JavaScript has become the most popular language in web development. This article explores various modern practices and tools to enhance your JS skills.",
+            "author": "1"
+        },
+        {
+            "id": "2",
+            "publishedAt": "2024-06-04T12:15:00.000Z",
+            "title": "CSS Grid vs Flexbox",
+            "image": "https://loremflickr.com/640/481",
+            "company": "Web Design Weekly",
+            "description": "Understanding the differences between CSS Grid and Flexbox.",
+            "content": "CSS Grid and Flexbox are powerful layout systems in CSS. This article helps you understand their differences and when to use each.",
+            "author": "2"
+        },
+        {
+            "id": "3",
+            "publishedAt": "2024-05-25T10:00:00.000Z",
+            "title": "Getting Started with React",
+            "image": "https://loremflickr.com/640/482",
+            "company": "Frontend Focus",
+            "description": "An introduction to building applications with React.",
+            "content": "React is a popular JavaScript library for building user interfaces. This guide helps you get started with the basics of React.",
+            "author": "1"
+        },
+        {
+            "id": "4",
+            "publishedAt": "2024-06-01T08:30:00.000Z",
+            "title": "Mastering Python",
+            "image": "https://loremflickr.com/640/483",
+            "company": "Code Academy",
+            "description": "Advanced Python techniques and best practices.",
+            "content": "Python is a versatile language used in various domains. This article covers advanced techniques to master Python programming.",
+            "author": "3"
+        },
+        {
+            "id": "5",
+            "publishedAt": "2024-06-03T14:45:00.000Z",
+            "title": "Introduction to Docker",
+            "image": "https://loremflickr.com/640/484",
+            "company": "DevOps Digest",
+            "description": "Getting started with Docker containers for development.",
+            "content": "Docker has revolutionized software development by enabling containerization. This guide introduces Docker and how to use it for your projects.",
+            "author": "2"
+        }
+    ],
+    "authors": [
+        {
+            "id": "1",
+            "createdAt": "2024-06-04T14:44:52.367Z",
+            "name": "Jane Doe",
+            "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/701.jpg",
+            "birthdate": "1985-03-25T00:00:00.000Z",
+            "bio": "Jane Doe is a software engineer with over 15 years of experience in web development, specializing in JavaScript and front-end technologies.",
+            "articles": ["1", "3"]
+        },
+        {
+            "id": "2",
+            "createdAt": "2024-06-04T14:44:52.367Z",
+            "name": "John Smith",
+            "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/702.jpg",
+            "birthdate": "1990-08-15T00:00:00.000Z",
+            "bio": "John Smith is a web designer and developer with a keen eye for modern UI/UX trends and a passion for creating intuitive user experiences.",
+            "articles": ["2", "5"]
+        },
+        {
+            "id": "3",
+            "createdAt": "2024-06-04T14:44:52.367Z",
+            "name": "Emily Johnson",
+            "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/703.jpg",
+            "birthdate": "1987-12-05T00:00:00.000Z",
+            "bio": "Emily Johnson is a Python enthusiast and data scientist, specializing in machine learning and AI technologies.",
+            "articles": ["4"]
+        }
+    ]
+}
