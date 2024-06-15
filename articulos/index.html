@@ -20,6 +20,12 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+        .form-control {
+            margin-bottom: 1rem;
+        }
+        .back-button {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -28,7 +34,77 @@
             <h1 class="text-3xl font-bold mb-4">Artículos</h1>
             <p class="text-gray-600">Explora nuestros artículos más recientes y encuentra información relevante.</p>
         </div>
+        <form id="searchForm" class="form-control">
+            <label for="searchTerm" class="mr-2">Buscar por nombre:</label>
+            <input type="text" id="searchTerm" name="searchTerm" class="p-2 border rounded">
+            <label for="limit" class="ml-4 mr-2">Límite:</label>
+            <input type="number" id="limit" name="limit" class="p-2 border rounded w-20">
+            <button type="submit" class="ml-4 p-2 bg-blue-500 text-white rounded">Buscar</button>
+        </form>
         <article-list id="articleList"></article-list>
+        <button id="backButton" class="back-button p-2 bg-gray-500 text-white rounded hidden">Back to Home</button>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const articleList = document.getElementById('articleList');
+            const backButton = document.getElementById('backButton');
+            const searchTermInput = document.getElementById('searchTerm');
+            const limitInput = document.getElementById('limit');
+
+            // Función para cargar los artículos iniciales
+            async function loadInitialArticles() {
+                await fetchData();
+            }
+
+            // Cargar los artículos iniciales al cargar la página
+            loadInitialArticles();
+
+            // Manejar la búsqueda cuando se envía el formulario
+            const searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const searchTerm = searchTermInput.value;
+                const limit = limitInput.value || 5;
+                const articles = await fetchArticles(searchTerm, limit);
+                console.log(`Artículos con término de búsqueda '${searchTerm}' y límite ${limit}:`, articles);
+                // Actualizar la lista de artículos con los artículos encontrados
+                articleList.articles = articles;
+                // Mostrar el botón de volver
+                backButton.classList.remove('hidden');
+            });
+
+            // Manejar el clic del botón de volver
+            backButton.addEventListener('click', async () => {
+                await fetchData(); // Cargar todos los artículos nuevamente
+                backButton.classList.add('hidden'); // Ocultar el botón de volver
+                searchTermInput.value = ''; // Limpiar el campo de búsqueda
+                limitInput.value = ''; // Limpiar el campo de límite
+                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            async function fetchData() {
+                try {
+                    const response = await fetch('https://5fb46367e473ab0016a1654d.mockapi.io/articles');
+                    const articles = await response.json();
+                    articleList.articles = articles;
+                } catch (error) {
+                    console.error('Error fetching articles:', error);
+                }
+            }
+
+            async function fetchArticles(searchTerm, limit) {
+                const url = `https://5fb46367e473ab0016a1654d.mockapi.io/articles?search=${searchTerm}&limit=${limit}`;
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching articles:', error);
+                    return [];
+                }
+            }
+        });
+    </script>
 </body>
 </html>

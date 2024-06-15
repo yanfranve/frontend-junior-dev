@@ -2,23 +2,23 @@ class ArticleList extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this._articles = []; // Inicializar con un array vacío de artículos
     }
 
     connectedCallback() {
-        this.fetchData();
+        this.render(); // Renderizar la lista inicialmente
     }
 
-    async fetchData() {
-        try {
-            const response = await fetch('https://5fb46367e473ab0016a1654d.mockapi.io/articles');
-            const articles = await response.json();
-            this.render(articles);
-        } catch (error) {
-            console.error('Error fetching articles:', error);
-        }
+    set articles(value) {
+        this._articles = value; // Actualizar el array de artículos cuando se establece la propiedad articles
+        this.render(); // Volver a renderizar con los nuevos artículos
     }
 
-    render(articles) {
+    get articles() {
+        return this._articles; // Getter para obtener los artículos actuales
+    }
+
+    render() {
         this.shadowRoot.innerHTML = `
             <style>
                 .list {
@@ -28,7 +28,7 @@ class ArticleList extends HTMLElement {
                 }
             </style>
             <div class="list">
-                ${articles.map(article => `
+                ${this.articles.map(article => `
                     <article-card
                         title="${article.title}"
                         image="${article.image}"
