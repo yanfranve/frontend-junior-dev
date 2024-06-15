@@ -4,68 +4,52 @@ class ArticleItem extends HTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
-    set data(article) {
-        this.article = article;
-        this.render();
+    set data({ article, author }) {
+        this.render(article, author);
     }
 
-    get data() {
-        return this.article;
-    }
-
-    render() {
+    render(article, author) {
         this.shadowRoot.innerHTML = `
             <style>
                 .card {
-                    border-radius: 0.5rem;
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                     overflow: hidden;
-                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                    background: white;
                     transition: transform 0.2s;
                     cursor: pointer;
-                    margin-bottom: 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
                 }
                 .card:hover {
-                    transform: scale(1.02);
+                    transform: scale(1.05);
                 }
                 .image {
-                    width: 100%;
-                    height: 150px;
-                    object-fit: cover;
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
                 }
                 .content {
-                    padding: 1rem;
+                    padding: 16px;
                 }
                 .title {
                     font-size: 1.25rem;
                     font-weight: bold;
-                    margin-bottom: 0.5rem;
                 }
-                .description {
-                    color: gray;
-                    font-size: 0.875rem;
-                    margin-bottom: 1rem;
-                }
-                .company {
-                    font-size: 0.875rem;
-                    color: #2b6cb0;
+                .author {
+                    color: #1e90ff;
+                    cursor: pointer;
                 }
             </style>
-            <div class="card" id="card">
-                <img class="image" src="${this.article.image}" alt="${this.article.title}">
+            <div class="card">
+                <div class="image" style="background-image: url('${article.image}')"></div>
                 <div class="content">
-                    <div class="title">${this.article.title}</div>
-                    <div class="description">${this.article.description}</div>
-                    <div class="company">${this.article.company}</div>
+                    <div class="title">${article.title}</div>
+                    <div class="author">${author.name}</div>
                 </div>
             </div>
         `;
 
-        this.shadowRoot.getElementById('card').addEventListener('click', () => {
-            window.location.href = `details.html?articleId=${this.article.id}`;
+        this.shadowRoot.querySelector('.card').addEventListener('click', () => {
+            window.location.href = `details.html?articleId=${article.id}`;
         });
     }
 }

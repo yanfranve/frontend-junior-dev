@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article Details</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script type="module" src="./components/author-card.js"></script>
 </head>
 <body class="bg-gray-100">
     <div id="app" class="container mx-auto p-4">
         <div id="articleDetails" class="bg-white p-4 rounded shadow">
-            <!-- Article details will be dynamically added here -->
+            <!-- Aquí se mostrarán los detalles del artículo -->
         </div>
-        <button class="mt-4 p-2 bg-blue-500 text-white rounded" onclick="goBack()">Back to Articles</button>
+        <div id="authorDetails" class="mt-4 p-4 bg-white rounded shadow">
+            <!-- Aquí se mostrará solo el nombre del autor como un enlace -->
+        </div>
+        <button class="mt-4 p-2 bg-blue-500 text-white rounded" onclick="goBack()">Back to Home</button>
     </div>
 
     <script>
@@ -27,26 +29,27 @@
 
         const articleId = getQueryParam('articleId');
         const articleDetails = document.getElementById('articleDetails');
+        const authorDetails = document.getElementById('authorDetails');
 
-        fetch('data.json')
+        fetch(`https://5fb46367e473ab0016a1654d.mockapi.io/articles/${articleId}`)
             .then(response => response.json())
             .then(data => {
-                const article = data.articles.find(a => a.id === articleId);
-                const author = data.authors.find(a => a.id === article.author);
+                articleDetails.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-2">${data.title}</h2>
+                    <img src="${data.image}" alt="${data.title}" class="mb-4">
+                    <p class="mb-4">${data.description}</p>
+                    <p class="mb-4">${data.content}</p>
+                `;
 
-                if (article) {
-                    articleDetails.innerHTML = `
-                        <h2 class="text-2xl font-bold mb-2">${article.title}</h2>
-                        <img src="${article.image}" alt="${article.title}" class="mb-4">
-                        <p class="mb-4">${article.content}</p>
-                        <p class="mb-4">Published by <span class="text-blue-500 cursor-pointer" onclick="viewAuthor(${author.id})">${author.name}</span> on ${new Date(article.publishedAt).toLocaleDateString()}</p>
-                    `;
-                }
+                // Mostrar el nombre del autor como un enlace
+                authorDetails.innerHTML = `
+                    <h3 class="text-xl font-bold mb-2">Author</h3>
+                    <p class="mb-4"><a href="author-details.html?authorId=${data.author}" class="text-blue-500">${data.author}</a></p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching article data:', error);
             });
-
-        function viewAuthor(authorId) {
-            window.location.href = `author-details.html?authorId=${authorId}`;
-        }
     </script>
 </body>
 </html>
