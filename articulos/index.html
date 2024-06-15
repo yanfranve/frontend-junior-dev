@@ -52,7 +52,8 @@
         <!-- Contenedor para los botones -->
         <div class="button-container">
             <button id="sortByPublishedAt" class="p-2 bg-green-500 text-white rounded">Ordenar por Publicación (desc)</button>
-            <button id="backButton" class="back-button p-2 bg-gray-500 text-white rounded hidden">Retorno</button>
+            <button id="sortByAuthor" class="p-2 bg-purple-500 text-white rounded">Ordenar por Autor</button>
+            <button id="backButton" class="back-button p-2 bg-gray-500 text-white rounded hidden">Return</button>
         </div>
         <article-list id="articleList"></article-list>
     </div>
@@ -105,6 +106,16 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' }); // Mover la página al inicio
             });
 
+            // Manejar el clic del botón Ordenar por Autor
+            const sortByAuthorButton = document.getElementById('sortByAuthor');
+            sortByAuthorButton.addEventListener('click', async () => {
+                const articles = await fetchArticlesSortedByAuthor();
+                console.log('Artículos ordenados por autor:', articles);
+                articleList.articles = articles;
+                backButton.classList.remove('hidden'); // Mostrar el botón de volver
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Mover la página al inicio
+            });
+
             async function fetchData() {
                 try {
                     const response = await fetch('https://5fb46367e473ab0016a1654d.mockapi.io/articles');
@@ -128,13 +139,25 @@
             }
 
             async function fetchArticlesSortedByPublishedAt() {
-                const url = `https://5fb46367e473ab0016a1654d.mockapi.io/articles?search=officia&sortBy=publishedAt&order=desc`;
+                const url = `https://5fb46367e473ab0016a1654d.mockapi.io/articles?sortBy=publishedAt&order=desc`;
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
                     return data;
                 } catch (error) {
                     console.error('Error fetching articles sorted by publishedAt:', error);
+                    return [];
+                }
+            }
+
+            async function fetchArticlesSortedByAuthor() {
+                const url = `https://5fb46367e473ab0016a1654d.mockapi.io/articles?sortBy=author`;
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching articles sorted by author:', error);
                     return [];
                 }
             }
